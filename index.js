@@ -12,7 +12,7 @@ module.exports = function svg(options) {
     : new (require('svgo'))(options || defaults)
 
   return {
-    name: 'svg',
+    name: 'svgo',
     transform: (code, id) => {
       if (id.endsWith('.svg')) {
         return svgo.optimize(code).then(result => ({
