@@ -1,6 +1,6 @@
 {
   "name": "rollup-plugin-svgo",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Import & clean svg files and export their content as strings",
   "main": "index.js",
   "keywords": [
