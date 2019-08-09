@@ -15,7 +15,7 @@ module.exports = function svg(options) {
     name: 'svgo',
     transform: (code, id) => {
       if (id.endsWith('.svg')) {
-        return svgo.optimize(code).then(result => ({
+        return svgo.optimize(code, { path: id }).then(result => ({
           map: { mappings: '' },
           code: 'export default ' + JSON.stringify(result.data)
         }))
