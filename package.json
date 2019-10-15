@@ -12,6 +12,6 @@
   "author": "Rasmus Porsager <rasmus@porsager.com>",
   "repository": "porsager/rollup-plugin-svgo",
   "dependencies": {
-    "svgo": "1.2.2"
+    "svgo": "1.3.0"
   }
 }
