@@ -9,7 +9,7 @@ A rollup plugin to import svg files processed with [svgo](https://github.com/svg
 ## Usage
 
 ```bash
-npm i rollup-plugin-svgo
+npm i -D rollup-plugin-svgo
 ```
 
 ```js
