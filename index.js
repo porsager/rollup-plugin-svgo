@@ -1,24 +1,15 @@
-const defaults = {
-  plugins: [{
-    removeViewBox: false
-  }, {
-    removeDimensions: true
-  }]
-}
 
-module.exports = function svg(options) {
-  const svgo = options && options.raw
-    ? ({ optimize: x => Promise.resolve({ data: x }) })
-    : new (require('svgo'))(options || defaults)
-
+module.exports = function svg(options, optimize) {
+  const optimize = optimize || require('svgo').optimize;
   return {
     name: 'svgo',
     transform: (code, id) => {
       if (id.endsWith('.svg')) {
-        return svgo.optimize(code, { path: id }).then(result => ({
+        const result = options?.raw ? { data: code } : optimize(code, { path: id, ...options })
+        return {
           map: { mappings: '' },
           code: 'export default ' + JSON.stringify(result.data)
-        }))
+        }
       }
     }
   }
