@@ -1,6 +1,6 @@
 
-module.exports = function svg(options) {
-  const { optimize } = require('svgo');
+module.exports = function svg(options, optimize) {
+  const optimize = optimize || require('svgo').optimize;
   return {
     name: 'svgo',
     transform: (code, id) => {
