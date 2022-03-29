@@ -3,6 +3,9 @@
   "version": "1.1.0",
   "description": "Import & clean svg files and export their content as strings",
   "main": "index.js",
+  "scripts": {
+    "test": "echo please PR"
+  },
   "keywords": [
     "rollup-plugin",
     "svg",
