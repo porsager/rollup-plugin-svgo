@@ -1,6 +1,20 @@
+module.exports = function svg(options = {
+  plugins: [
+    'removeDimensions',
+    {
+      name: 'preset-default',
+      params: {
+        overrides: {
+          removeViewBox: false
+        }
+      }
+    }
+  ]
+}) {
+  const optimize = options.raw
+    ? x => Promise.resolve({ data: x })
+    : options.optimize || require('svgo').optimize
 
-module.exports = function svg(options, optimize) {
-  const optimize = optimize || require('svgo').optimize;
   return {
     name: 'svgo',
     transform: (code, id) => {
